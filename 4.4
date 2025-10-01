@@ -24,8 +24,11 @@ int main()
             if (x <= 0)
             y = -(R / 6.0) * x - R;
         else
-            if (x > 0 && x < 2 * R)
-            y = -sqrt(R * R - (x - R) * (x - R));
+            if (0 < x && x <= R)
+            y = -sqrt(R * R - x * x);
+        else
+            if (R < x && x <= 2 * R)
+            y = R - sqrt(R * R - (x - R) * (x - R));
         else
             y = R;
 
