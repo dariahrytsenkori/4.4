@@ -1,0 +1,41 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    double R, xp, xk, dx, x, y;
+
+    cout << "R = "; cin >> R;
+    cout << "xp = "; cin >> xp;
+    cout << "xk = "; cin >> xk;
+    cout << "dx = "; cin >> dx;
+
+    cout << fixed;
+    cout << "---------------------------" << endl;
+    cout << "|" << setw(10) << "x"
+        << " |" << setw(12) << "y" << " |" << endl;
+    cout << "---------------------------" << endl;
+
+    x = xp;
+    while (x <= xk)
+    {
+            if (x <= 0)
+            y = -(R / 6.0) * x - R;
+        else
+            if (x > 0 && x < 2 * R)
+            y = -sqrt(R * R - (x - R) * (x - R));
+        else
+            y = R;
+
+        cout << "|" << setw(10) << setprecision(2) << x
+            << " |" << setw(12) << setprecision(5) << y
+            << " |" << endl;
+
+        x += dx;
+    }
+    cin.get();
+    cout << "---------------------------" << endl;
+    return 0;
+}
